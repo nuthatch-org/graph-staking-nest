@@ -21,6 +21,6 @@ it does not claim current delegated balances, which require a broader staking-st
 ## Provenance and release gate
 
 The contract is HorizonStaking at `0x00669A4CF01450B64E8A2A20E9b1FCB71E61eF03`, from block
-`42,449,585`. Its ABI is vendored. Before this repository is marked available in the catalogue, the
-checks directory must contain fixed-block fixtures matching the Lodestar production result and the
-network subgraph.
+`42,449,585`. Its ABI is vendored. Archive-backed fixed-range fixtures are committed under
+`checks/expected/`. The remaining release work is an independent comparison with the source
+subgraph, followed by an explicit Lodestar cutover.
