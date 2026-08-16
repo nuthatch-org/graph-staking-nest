@@ -1,7 +1,7 @@
 # Graph Staking nest
 
 An installable Nuthatch nest for the Graph Protocol's HorizonStaking delegation activity on Arbitrum One.
-It is the packaged source of the nest serving Lodestar's Delegation Activity feed.
+It is the standalone package intended to serve Lodestar's Delegation Activity feed.
 
 ```sh
 nuthatch init --from https://github.com/nightswatchhq/graph-staking-nest

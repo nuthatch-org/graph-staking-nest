@@ -1,0 +1,20 @@
+[
+  {
+    "event_count": 40,
+    "event_type": "delegation",
+    "first_block": 492553524,
+    "last_block": 495106881
+  },
+  {
+    "event_count": 31,
+    "event_type": "undelegation",
+    "first_block": 492308455,
+    "last_block": 495082288
+  },
+  {
+    "event_count": 25,
+    "event_type": "withdrawal",
+    "first_block": 492605208,
+    "last_block": 495141855
+  }
+]
