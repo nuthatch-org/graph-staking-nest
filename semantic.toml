@@ -1,0 +1,83 @@
+# semantic.toml - what this nest's data *means* (RFC-0016). Read by the MCP `schema`
+# tool, the admin UI, and the scaffolded skill. Edit descriptions freely; the
+# `[table.*.footguns]` are DERIVED from the ABI and regenerated - leave them be.
+
+schema_version = 1
+
+[nest]
+description = "The `graph-staking-nest` nest on arbitrum-one. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.staking__delegated_tokens_withdrawn]
+description = "`DelegatedTokensWithdrawn(address,address,address,uint256)` events emitted by the `staking` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per DelegatedTokensWithdrawn(address,address,address,uint256) event"
+
+[table.staking__delegated_tokens_withdrawn.columns]
+delegator = "The `delegator` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+serviceProvider = "The `serviceProvider` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+tokens = "The `tokens` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+verifier = "The `verifier` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.staking__delegated_tokens_withdrawn.footguns]
+big_ints = ["tokens"]
+overflows_dec = ["tokens"]
+
+[table.staking__stake_delegated_withdrawn]
+description = "`StakeDelegatedWithdrawn(address,address,uint256)` events emitted by the `staking` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per StakeDelegatedWithdrawn(address,address,uint256) event"
+
+[table.staking__stake_delegated_withdrawn.columns]
+delegator = "The `delegator` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+indexer = "The `indexer` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+tokens = "The `tokens` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.staking__stake_delegated_withdrawn.footguns]
+big_ints = ["tokens"]
+overflows_dec = ["tokens"]
+
+[table.staking__tokens_delegated]
+description = "`TokensDelegated(address,address,address,uint256,uint256)` events emitted by the `staking` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per TokensDelegated(address,address,address,uint256,uint256) event"
+
+[table.staking__tokens_delegated.columns]
+delegator = "The `delegator` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+serviceProvider = "The `serviceProvider` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+shares = "The `shares` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+tokens = "The `tokens` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+verifier = "The `verifier` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.staking__tokens_delegated.footguns]
+big_ints = [
+    "tokens",
+    "shares",
+]
+overflows_dec = [
+    "tokens",
+    "shares",
+]
+
+[table.staking__tokens_undelegated]
+description = "`TokensUndelegated(address,address,address,uint256,uint256)` events emitted by the `staking` contract. (seeded from the ABI - edit semantic.toml to improve this)"
+grain = "one row per TokensUndelegated(address,address,address,uint256,uint256) event"
+
+[table.staking__tokens_undelegated.columns]
+delegator = "The `delegator` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+serviceProvider = "The `serviceProvider` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+shares = "The `shares` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+tokens = "The `tokens` uint256 parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+verifier = "The `verifier` address parameter. (seeded from the ABI - edit semantic.toml to improve this)"
+
+[table.staking__tokens_undelegated.footguns]
+big_ints = [
+    "tokens",
+    "shares",
+]
+overflows_dec = [
+    "tokens",
+    "shares",
+]
+
+[view]
+
+# Authored views (views/*.sql) are described here so the MCP/`/schema` can render them:
+# [view.your_view_name]
+# description = "What this derivation computes."

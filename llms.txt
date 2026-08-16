@@ -1,0 +1,25 @@
+# nuthatch nest on arbitrum-one
+
+A self-hosted blockchain index. Query it locally; there is no third-party API.
+
+## Contracts
+- `staking` = 0x00669a4cf01450b64e8a2a20e9b1fcb71e61ef03
+
+## Tables (one per contract event)
+- `staking__delegated_tokens_withdrawn` - DelegatedTokensWithdrawn(address,address,address,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, serviceProvider, verifier, delegator, tokens)
+- `staking__stake_delegated_withdrawn` - StakeDelegatedWithdrawn(address,address,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, indexer, delegator, tokens)
+- `staking__tokens_delegated` - TokensDelegated(address,address,address,uint256,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, serviceProvider, verifier, delegator, tokens, shares)
+- `staking__tokens_undelegated` - TokensUndelegated(address,address,address,uint256,uint256) (block_number, block_hash, block_timestamp, tx_hash, log_index, address, _seq, serviceProvider, verifier, delegator, tokens, shares)
+
+## Live HTTP API (run `nuthatch dev`)
+- `GET /`                    index status
+- `GET /tables`              every table with its columns
+- `GET /table/{name}?limit=N` recent rows of one table (hot + sealed)
+- `GET /entity/{id}`         one row by id (`{block:012}-{logindex:06}`)
+- `GET /sql?q=SELECT...`     read-only SQL; each table is a view named `{alias}__{event}`
+- `GET /balances?limit=N`    top holder balances (when an ERC-20 Transfer table is present)
+- `GET /balance/{address}`   one address's derived balance
+
+## MCP (for coding agents)
+Run `nuthatch mcp` (stdio) to expose tools: status, schema, tables, table, sql, entity,
+balance, top_balances. Fully offline against the local instance; nothing phones home.
