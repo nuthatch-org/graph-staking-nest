@@ -4,7 +4,7 @@ An installable Nuthatch nest for the Graph Protocol's HorizonStaking delegation 
 It is the standalone package intended to serve Lodestar's Delegation Activity feed.
 
 ```sh
-nuthatch init --from https://github.com/nightswatchhq/graph-staking-nest
+nuthatch init --from https://github.com/nuthatch-org/graph-staking-nest
 nuthatch dev --dir graph-staking-nest --rpc https://your-archive-rpc
 ```
 
